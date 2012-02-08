@@ -8,7 +8,7 @@
 import os
 import sys
 from nose.tools import raises
-
+from decimal import Decimal
 
 def setup():
     sys.path.insert(0, os.path.pardir)
@@ -41,4 +41,14 @@ class TestControlChart(object):
         ControlChart(data=['a', 'b', 'c', 'e'])
 
     def test_mean_returns_correct_values(self):
-        assert self.c.mean() == 3.0
+        assert isinstance(self.c.mean, Decimal)
+
+    def test_range_of_difference_works_ok(self):
+        assert isinstance(self.c.range_of_difference_mean, Decimal)
+
+    def test_upper_control_limit_gives_correct_value(self):
+        assert isinstance(self.c.upper_control_limit, Decimal)
+
+    def test_lower_control_limit_gives_correct_value(self):
+        assert isinstance(self.c.lower_control_limit, Decimal)
+

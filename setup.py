@@ -16,7 +16,7 @@ if sys.argv[-1] == "publish":
     sys.exit()
 
 if sys.argv[-1] == "test":
-    os.system("python test_controlchart.py")
+    os.system("nosetests")
     sys.exit()
 
 required = []
